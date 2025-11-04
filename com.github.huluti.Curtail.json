@@ -127,7 +127,11 @@
 		"svgo-sources.json",
 		{
 		    "type": "script",
-		    "dest-filename": "start-svgo.sh"
+		    "dest-filename": "start-svgo.sh",
+		    "commands": [
+                        "export PATH=$PATH:/app/node/bin",
+                        "zypak-wrapper \\\n  /app/svgo/node_modules/electron/dist/electron \\\n  /app/svgo\n"
+                    ]
 		}
 	    ]
 	},
