@@ -238,11 +238,11 @@ class Compressor():
 
         return command
 
-def build_svg_command(self, result_item):
-    command = f"svgo {quote(result_item.filename)} -o {quote(result_item.new_filename)}"
+    def build_svg_command(self, result_item):
+        command = f"svgo {quote(result_item.filename)} -o {quote(result_item.new_filename)}"
 
-    if self.svg_maximum_level:
-        command += " --multipass --pretty=false"
+        if self.svg_maximum_level:
+            command += " --multipass --pretty=false"
 
-    return command
+        return command
 

@@ -108,21 +108,26 @@
 		"build-args": ["--share=network"]
 	    },
 	    "build-commands": [
-		"npm install",
-		"ls /usr/lib/sdk/node24/bin",
-		"install -Dm755 /usr/lib/sdk/node24/bin/svgo /app/bin/svgo"
+		"npm install --prefix=svgo",
+		"cp -r svgo /app",
+		"install -Dm755 start-svgo.sh /app/bin/svgo"
 	    ],
 	    "sources": [
-		"svgo-sources.json",
 		{
 		    "type": "git",
 		    "url": "https://github.com/svg/svgo.git",
 		    "tag": "v4.0.0",
 		    "commit": "71e1f05a7efdb667ff61df53f621e8f3e48076fc",
+		    "dest": "svgo",
 		    "x-checker-data": {
 		        "type": "git",
 		        "tag-pattern": "^v([\\d.]+)$"
 		    }
+		},
+		"svgo-sources.json",
+		{
+		    "type": "script",
+		    "dest-filename": "start-svgo.sh"
 		}
 	    ]
 	},
